@@ -17,6 +17,4 @@
 * Аннотации при объявлении переменных и функций
 
 ## Использование скрипта:
-`python test_case_spacehug.py -h`
-Пример:
 `python test_case_spacehug.py -a 1000 -oj matrix.json -oi image.png`
