@@ -22,17 +22,17 @@ class Map:
         Initializes the map
         """
         # Given the initial dimensions (196, 98, 350):
-        self.large_horisontal = 350.0                                # Object (house) dimensions
-        self.large_half_horisontal = 175.0                           #
-        self.large_vertical = 175.0                                  #
-        self.large_half_vertical = 87.5                              #
-        self.small_horisontal = 175.0                                # Gap dimensions
-        self.small_vertical = 87.5                                   #
-        self.chunk_horisontal = 1750.0                               # Chunk (block of houses) dimensions
-        self.chunk_half_horisontal = 875.0                           #
-        self.chunk_vertical = 875.0                                  #
-        self.chunk_half_vertical = 437.5                             #
-        self.chunk_center_coordinate = [875.0, 437.5]                # Chunk (block of houses) center
+        self.large_horisontal = 350.0                                 # Object (house) dimensions
+        self.large_half_horisontal = 175.0                            #
+        self.large_vertical = 175.0                                   #
+        self.large_half_vertical = 87.5                               #
+        self.small_horisontal = 175.0                                 # Gap dimensions
+        self.small_vertical = 87.5                                    #
+        self.chunk_horisontal = 1750.0                                # Chunk (block of houses) dimensions
+        self.chunk_half_horisontal = 875.0                            #
+        self.chunk_vertical = 875.0                                   #
+        self.chunk_half_vertical = 437.5                              #
+        self.chunk_center_coordinate = [875.0, 437.5]                 # Chunk (block of houses) center
         self.array_size = 0
         self.array_center = [0, 0]
         self.coordinates_delta = []
@@ -266,9 +266,9 @@ class Map:
             if coordinate[1] < min_y:
                 min_y = coordinate[1]
 
-        # Adding this to have spacing on the top and left of the image
-        min_x -= self.large_horisontal
-        min_y -= self.large_vertical
+        # Adding this to have objects fully visible on the top and left of the image
+        min_x -= self.large_half_horisontal
+        min_y -= self.large_half_vertical
 
         # Shifting all the coordinates by minimals
         for key, coordinate in self.apps_coordinates.items():
@@ -288,9 +288,9 @@ class Map:
 
             if value[1] > max_y:
                 max_y = value[1]
-        # Adding this to have spacing on the bottom and right of the image
-        max_x += self.large_horisontal
-        max_y += self.large_vertical
+        # Adding this to have objects fully visible on the bottom and right of the image
+        max_x += self.large_half_horisontal
+        max_y += self.large_half_vertical
         # Storing final dimensions for later use
         self.canvas_dimensions = [int(max_x), int(max_y)]
 
